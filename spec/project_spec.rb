@@ -50,14 +50,14 @@ describe(Project) do
   end
 
   describe("#volunteers") do
-    it("returns an array of volunteers for that Project") do
+    it("returns an array of volunteers for that project") do
       test_project = Project.new({:name => "Test Fundraiser", :id => nil})
       test_project.save()
       test_volunteer = Volunteer.new({:name => "Brad", :project_id => test_project.id(), :id => nil})
       test_volunteer.save()
       test_volunteer1 = Volunteer.new({:name => "Jeff", :project_id => test_project.id(), :id => nil})
       test_volunteer1.save()
-      expect(test_project.volunteers()).to eq([test_volunteer, test_volunteer2])
+      expect(test_project.volunteers()).to eq([test_volunteer, test_volunteer1])
     end
   end
 

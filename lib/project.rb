@@ -21,6 +21,7 @@ class Project
       saved_project = Project.new({:name => name, :id => id})
       saved_projects.push(saved_project)
     end
+
     return saved_projects
   end
 
@@ -40,15 +41,12 @@ class Project
 
   def volunteers
     found_volunteers = []
-    volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id()}")
-
+    volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id()};")
     volunteers.each() do |volunteer|
-      if volunteer[:project_id] == self.id()
-        name = volunteer[:name]
-        project_id = volunteer[:project_id].to_i()
-        id = volunteer[:id].to_i()
-        found_volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
-      end
+      name = volunteer["name"]
+      project_id = volunteer["project_id"].to_i()
+      id = volunteer["id"].to_i()
+      found_volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
     end
     return found_volunteers
   end
