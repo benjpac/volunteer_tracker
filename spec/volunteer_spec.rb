@@ -25,7 +25,7 @@ describe(Volunteer) do
 
   describe('#save') do
     it('saves volunteer object to database') do
-      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => nil, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => 1, :id => nil})
       test_volunteer.save()
       expect(Volunteer.all()).to eq([test_volunteer])
     end
@@ -33,8 +33,8 @@ describe(Volunteer) do
 
   describe('#==') do
     it("is the same volunteer if it has the same name") do
-    project = Volunteer.new({:name => "Test Fundraiser", :project_id => nil, :id => nil})
-    project1 = Volunteer.new({:name => "Test Fundraiser", :project_id => nil, :id => nil})
+    volunteer = Volunteer.new({:name => "Test Fundraiser", :project_id => 1, :id => nil})
+    volunteer1 = Volunteer.new({:name => "Test Fundraiser", :project_id => 1, :id => nil})
     expect(volunteer).to eq(volunteer1)
     end
   end
