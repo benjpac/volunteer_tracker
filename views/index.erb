@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <h3>Projects</h3>
   <% @projects.each() do |project| %>
-    <p class="indent"><%= project.name() %></p>
+    <p class="indent"><a href="/project/<%= project.id()%>"><%= project.name() %></a></p>
   <% end %>
 </div>
 <div class="col-md-6">
@@ -15,24 +15,7 @@
     <button class="btn btn-primary inline-block button" type="submit" name="button">Add Volunteer</button>
   </form>
   <hr>
-  <h4>Assign Volunteers</h4>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default">Select Project</button>
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="caret"></span>
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <script type="text/javascript">
-    $('.dropdown-toggle').dropdown()
-  </script>
+  <h4>All Volunteers</h4>
   <% @volunteers.each() do |volunteer| %>
     <p class="indent"><%= volunteer.name() %></p>
   <% end %>

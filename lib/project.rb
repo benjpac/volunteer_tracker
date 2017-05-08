@@ -55,7 +55,15 @@ class Project
   def update(attributes)
     @name = attributes.fetch(:name, @name)
     @id = self.id()
-    DB.exec("UPDATE projects SET name = '#{@name}' WHERE id = #{@id};")
+    if attributes[:volunteer_ids] != nil
+      volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
+      volunteers.each() do |volunteer|
+        DB.exec("UPDATE volunteers SET project_id = -1 WHERE project_id = #{@id};")
+      end
+      attributes.fetch(:volunteer_ids, []).each() do |volunteer_id|
+        DB.exec("UPDATE volunteers SET project_id = '#{@id}' WHERE id = #{volunteer_id};")
+      end
+    end
   end
 
   def delete

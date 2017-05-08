@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Volunteer Tracker</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='../css/styles.css'>
   </head>
   <body>
@@ -16,8 +17,11 @@
           <%= yield %>
         </div>
       </div>
-      <form action="/clear_all" method="post">
-        <button class="btn btn-danger" type="submit" name="clear_all">Clear Database</button>
+      <a href="/">
+        <button class="btn btn-primary" type="button" > Home</button>
+      </a>
+      <form action="/clear_all" method="post" class="inline-block">
+        <button class="btn btn-danger inline-block" type="submit" name="clear_all">Clear Database</button>
       </form>
     </div>
   </body>

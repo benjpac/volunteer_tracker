@@ -23,6 +23,26 @@ post('/add_project') do
   erb(:index)
 end
 
+get('/project/:id') do
+  @project = Project.find(params[:id].to_i())
+  @volunteers = Volunteer.all()
+  erb(:project)
+end
+
+patch('/project/:id') do
+  @project = Project.find(params[:id].to_i())
+  if params["name"] != ""
+    name = params["name"]
+    @project.update({:name => name})
+  end
+  if params["volunteer_ids"] != nil
+    volunteer_ids = params["volunteer_ids"]
+    @project.update({:volunteer_ids => volunteer_ids})
+  end
+  @volunteers = Volunteer.all()
+  erb(:project)
+end
+
 post('/add_volunteer') do
   name = params[:volunteer]
   volunteer = Volunteer.new(:name => name)
