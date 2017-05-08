@@ -10,14 +10,14 @@ describe(Volunteer) do
 
   describe('#name') do
     it('tells you the the volunteers name') do
-      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => nil, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Jeff"})
       expect(test_volunteer.name()).to eq("Jeff")
     end
   end
 
   describe('#id') do
     it('tells you its id') do
-      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => nil, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Jeff"})
       test_volunteer.save()
       expect(test_volunteer.id()).to be_an_instance_of(Fixnum)
     end
@@ -25,7 +25,7 @@ describe(Volunteer) do
 
   describe('#save') do
     it('saves volunteer object to database') do
-      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => 1, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Jeff", :project_id => 1})
       test_volunteer.save()
       expect(Volunteer.all()).to eq([test_volunteer])
     end
@@ -33,8 +33,8 @@ describe(Volunteer) do
 
   describe('#==') do
     it("is the same volunteer if it has the same name") do
-    volunteer = Volunteer.new({:name => "Test Fundraiser", :project_id => 1, :id => nil})
-    volunteer1 = Volunteer.new({:name => "Test Fundraiser", :project_id => 1, :id => nil})
+    volunteer = Volunteer.new({:name => "Test Fundraiser", :project_id => 1})
+    volunteer1 = Volunteer.new({:name => "Test Fundraiser", :project_id => 1})
     expect(volunteer).to eq(volunteer1)
     end
   end

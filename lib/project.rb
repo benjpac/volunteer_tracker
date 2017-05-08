@@ -3,8 +3,9 @@ class Project
   attr_reader(:id)
 
   def initialize(attributes)
-    @name = attributes[:name]
-    @id = attributes[:id]
+    attributes.each do |key, value|
+      instance_variable_set("@#{key}", value) unless value.nil?
+    end
   end
 
   def save

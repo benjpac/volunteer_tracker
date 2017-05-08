@@ -1,0 +1,15 @@
+.inline-block {
+  display: inline-block;
+}
+
+.input-field {
+  width: 68%;
+}
+
+.button {
+  width: 30%;
+}
+
+.indent {
+  padding-left: 1em;
+}
