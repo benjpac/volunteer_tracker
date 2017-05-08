@@ -56,7 +56,7 @@ post('/delete_project/:id') do
   project = Project.find(params[:id].to_i())
   project.delete()
   @volunteers = Volunteer.all()
-  @projects = Project.all()  
+  @projects = Project.all()
   erb(:index)
 end
 
